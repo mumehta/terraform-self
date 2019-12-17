@@ -5,3 +5,5 @@
 */*key*
 */.terraform.*.lock
 */*nocheckin*
+*/public_ips.txt
+*/private_ips.txt
