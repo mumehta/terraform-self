@@ -6,3 +6,4 @@
 */.terraform.*.lock
 */*nocheckin*
 */*ips.txt
+*/terraform.tfvars

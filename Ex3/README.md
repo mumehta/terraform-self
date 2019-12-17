@@ -9,6 +9,10 @@ terraform apply -var="SUBNET_ID=<public-subnet-id>" -var="AWS_ACCESS_KEY=<aws-pu
 
 terraform destroy -var="SUBNET_ID=<public-subnet-id>" -var="AWS_ACCESS_KEY=<aws-public-access-key>" -var="AWS_SECRET_KEY=<aws-private-secret-key>"
 
+## Instead of using -var from command line, use tfvars file and skip passing AWS_ACCESS_KEY and AWS_SECRET_KEY ##
+terraform apply -var="SUBNET_ID=<public-subnet-id>"
+terraform destroy -var="SUBNET_ID=<public-subnet-id>"
+
 ## ssh and check if nginx is running? ##
 ssh -i "mykey" ubuntu@<private-ip>
 curl -LI http://localhost
