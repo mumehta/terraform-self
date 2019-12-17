@@ -23,7 +23,10 @@ resource "aws_instance" "example" {
   }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.example.public_ip} >> public_ips.txt"
+    command =  <<EOT
+      echo Public ip ${aws_instance.example.public_ip} >> ips.txt;
+      echo Private ip ${aws_instance.example.private_ip} >> ips.txt
+    EOT
   }
 
   connection {
@@ -32,4 +35,12 @@ resource "aws_instance" "example" {
     user    = var.INSTANCE_USERNAME
     private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
+}
+
+output "public_ip" {
+  value = aws_instance.example.public_ip
+}
+
+output "private_ip" {
+  value = aws_instance.example.private_ip
 }
